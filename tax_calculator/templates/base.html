@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Coding by Biplab Gorain | https://twitter.com/mr_biplab123  -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!---- CSS  -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/style.css') }}"
+    />
+
+    <!---- External CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- Responsive IncomeTax Computation Form -->
+  </head>
+
+  <body>
+    <div class="container">
+      <header>Compute your Income Tax</header>
+      {% block body %} {% endblock body %}
+    </div>
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+  </body>
+</html>

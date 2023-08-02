@@ -1,0 +1,324 @@
+{% extends 'base.html' %} {% block body %}
+<form action="/download" id="regForm" method="POST">
+  <div class="form tab">
+    <div class="details personal">
+      <span class="title">Personal Details</span>
+
+      <div class="fields">
+        <div class="input-field">
+          <label>Full Name<span class="red"> *</span></label>
+          <input
+            class="req"
+            oninput="this.value = this.value.toUpperCase()"
+            name="name"
+            type="text"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Pan Number<span class="red"> *</span></label>
+          <input
+            oninput="this.value = this.value.toUpperCase()"
+            class="req"
+            name="pan"
+            type="text"
+            placeholder="Enter pan number"
+            required
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Date of Birth</label>
+          <input type="date" name="dob" placeholder="Enter birth date" />
+        </div>
+
+        <div class="input-field">
+          <label>Mobile Number</label>
+          <input
+            type="number"
+            name="number"
+            placeholder="Enter mobile number"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Name of the Institute</label>
+          <input
+            type="text"
+            oninput="this.value = this.value.toUpperCase()"
+            name="institute"
+            placeholder="Enter your institute name"
+          />
+        </div>
+        <div class="input-field">
+          <label>Designation</label>
+          <input
+            type="text"
+            oninput="this.value = this.value.toUpperCase()"
+            name="designation"
+            placeholder="Enter your designation"
+          />
+        </div>
+        <div class="input-field">
+          <label>Assessment Year<span class="red"> *</span></label>
+          <select class="req" name="year" required>
+            <option value="" disabled selected>Select assessment year</option>
+            <option value="2023-2024">2023-2024</option>
+            <option value="2022-2023">2022-2023</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2022-2023">2022-2023</option>
+            <option value="2023-2024">2023-2024</option>
+            <option value="2024-2025">2024-2025</option>
+            <option value="2025-2026">2025-2026</option>
+            <option value="2026-2027">2026-2027</option>
+            <option value="2028-2029">2028-2029</option>
+            <option value="2029-2030">2029-2030</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="nextBtn" onclick="nextPrev(1)">
+        <span class="btnText">Next</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="form tab">
+    <div class="details income">
+      <span class="title">Income under the head of salary</span>
+
+      <div class="fields">
+        <div class="input-field">
+          <label>Gross Salary<span class="red"> *</span></label>
+          <input
+            class="req"
+            name="gross"
+            type="number"
+            placeholder="Enter your gross salary"
+            required
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Professional Tax</label>
+          <input
+            type="number"
+            name="pTax"
+            placeholder="Enter your professional tax"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Deduction hra U/S 10(13A)(as per rules)</label>
+          <input type="number" name="hra" placeholder="Enter your hra" />
+        </div>
+
+        <div class="input-field">
+          <label
+            >Exemption on Home Loan Interest(u/s 24(1)(vi))(Max.
+            Rs.2lakes)</label
+          >
+          <input type="number" name="hli" placeholder="Home loan interest" />
+        </div>
+
+        <div class="input-field">
+          <label>Any other Exempted Receipts/allowances(as per act)</label>
+          <input
+            type="number"
+            name="ao1"
+            placeholder="Any other exempted/allowances"
+          />
+        </div>
+
+        <div class="input-field"></div>
+      </div>
+    </div>
+
+    <div class="details income others">
+      <span class="title">Income from other sources</span>
+
+      <div class="fields">
+        <div class="input-field">
+          <label>Saving bank Interest</label>
+          <input
+            type="number"
+            name="sbi"
+            placeholder="Enter saving bank interest"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Interest From Investment</label>
+          <input
+            type="number"
+            name="ifi"
+            placeholder="Enter interest from investment"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>TDS Refund Interest</label>
+          <input
+            type="number"
+            name="tds"
+            placeholder="Enter tds refund interest"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Family Pension</label>
+          <input
+            type="number"
+            name="pension"
+            placeholder="Enter family pension"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Any other</label>
+          <input
+            type="number"
+            name="ao2"
+            placeholder="Enter any other income"
+          />
+        </div>
+
+        <div class="input-field"></div>
+      </div>
+
+      <div class="buttons">
+        <div class="backBtn" onclick="nextPrev(-1)">
+          <i class="uil uil-navigator"></i>
+          <span class="btnText">Back</span>
+        </div>
+        <button class="nextBtn" onclick="nextPrev(1)">
+          <span class="btnText">Next</span>
+          <i class="uil uil-navigator"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form tab">
+    <div class="details 80c">
+      <span class="title">Deduction Under 80C</span>
+
+      <div class="fields">
+        <div class="input-field">
+          <label>G.P.F</label>
+          <input type="number" name="gpf" placeholder="Enter your gpf"/>
+        </div>
+
+        <div class="input-field">
+          <label>G.S.L.I</label>
+          <input type="number" name="gsli" placeholder="Enter your gsli" />
+        </div>
+
+        <div class="input-field">
+          <label>LIC Premiums</label>
+          <input
+            type="number"
+            name="lic"
+            placeholder="Enter your lic prremiums"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>House Loan Principal</label>
+          <input
+            type="number"
+            name="hlp"
+            placeholder="Enter house loan prncipal"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Tuition fees for two children</label>
+          <input
+            type="number"
+            name="tuition"
+            placeholder="Enter tuition fees"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>Any Others Deduction under 80C</label>
+          <input
+            type="number"
+            name="ao3"
+            placeholder="Enter any other deduction"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="details chapter_vi">
+      <span class="title">Other Deduction Under Chapter VI A</span>
+
+      <div class="fields">
+        <div class="input-field">
+          <label>80D Medical Insurance Premium for Self</label>
+          <input
+            type="number"
+            name="self80d"
+            placeholder="Enter medical insurance premium"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>80D Medical Insurance Premium for Parents</label>
+          <input
+            type="number"
+            name="parents80d"
+            placeholder="Enter medical insurance premium"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>80TTA Exmp. of Saving Bank Interest</label>
+          <input
+            type="number"
+            name="sbi80tta"
+            placeholder="Enter saving bank interest"
+          />
+        </div>
+
+        <div class="input-field">
+          <label>N.P.S.</label>
+          <input type="number" name="nps" placeholder="Enter nps amount" />
+        </div>
+
+        <div class="input-field">
+          <label>Any Others(within max limit)</label>
+          <input
+            type="number"
+            name="ao4"
+            placeholder="Enter any others deductions"
+          />
+        </div>
+
+        <div class="input-field">
+          <label></label>
+          <input type="checkbox" class="hide" required />
+        </div>
+
+        <div class="input-field"></div>
+      </div>
+
+      <div class="buttons">
+        <div class="backBtn" onclick="nextPrev(-1)">
+          <i class="uil uil-navigator"></i>
+          <span class="btnText">Back</span>
+        </div>
+        <button class="submit" onclick="nextPrev(1)">
+          <span class="btnText">Done</span>
+          <i class="uil uil-navigator"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock body %}
